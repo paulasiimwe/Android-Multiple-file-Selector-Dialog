@@ -7,7 +7,10 @@ Here is his profile on stackoverflow http://stackoverflow.com/users/3290971/aria
 This library starts a file/folder selector activity and returns the file(s) (Yes Multiple option too) or folder.
 The library is still very simple and not very aesthetically pleasing so your contribution is highly welcome.
 
-Im looking forward to assistence to add thumbnail views for image files listed. But any other improvements are highly welcome.
+Im looking forward to assistence to 
+-add thumbnail views for image files listed.
+-the activity starting from the last folder location accessed, with the checked files still checked. 
+ But any other improvements are highly welcome.
 
 
 Im not yet conversant with gradle so I don't know if it will work with such systems. But on eclipse simply add the library in your project's android properties.
@@ -22,7 +25,7 @@ Add these activities in your manifest.
 <activity
             android:name="paul.arian.fileselector.FolderSelectionActivity" />
 
-##########################################################################################################################################################################################
+#########################################################################################
 To start the fileSelector 
 first import.
 
@@ -55,7 +58,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	}
 
 
-########################################################################################################################################################################################33
+##########################################################################
 To start folder selection activity,
 
 1st import 

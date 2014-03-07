@@ -4,6 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+
+
+    <TextView
+        android:id="@+id/folderpath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:textSize="20dp"
+        android:layout_margin="2dp" />
+
     <Button
         android:id="@+id/goUpTextView"
         android:layout_width="match_parent"
@@ -14,29 +25,11 @@
         android:layout_margin="5dp"
         android:onClick="onGoUpClickListener" />
 
-    <TextView
-        android:id="@+id/directoriesTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/directories"
-        android:textSize="20dp"
-        android:layout_margin="2dp" />
-
     <ListView
         android:id="@+id/directorySelectionList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2" />
-
-    <TextView
-        android:id="@+id/filesTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/files"
-        android:textSize="20dp"
-        android:layout_margin="2dp" />
 
     <ListView
         android:id="@+id/fileSelectionList"

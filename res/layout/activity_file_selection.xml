@@ -4,6 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+
+
+    <TextView
+        android:id="@+id/folderpath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:textSize="20dp"
+        android:layout_margin="2dp" />
+
     <Button
         android:id="@+id/goUpTextView"
         android:layout_width="match_parent"
@@ -13,30 +24,12 @@
         android:textSize="20dp"
         android:layout_margin="5dp"
         android:onClick="onGoUpClickListener" />
-
-    <TextView
-        android:id="@+id/directoriesTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/directories"
-        android:textSize="20dp"
-        android:layout_margin="2dp" />
     
     <ListView
         android:id="@+id/directorySelectionList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2" />
-
-    <TextView
-        android:id="@+id/filesTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/files"
-        android:textSize="20dp"
-        android:layout_margin="2dp" />
     
     <ListView
         android:id="@+id/fileSelectionList"
@@ -45,11 +38,31 @@
         android:layout_weight="2"
         android:choiceMode="multipleChoice" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="90">
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ok"
-        android:id="@+id/ok"
-        android:layout_gravity="center" />
+        android:text="@string/all"
+        android:id="@+id/all"
+        android:layout_weight="30" />
 
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ok"
+            android:id="@+id/ok"
+            android:layout_weight="30" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/none"
+            android:id="@+id/none"
+            android:layout_weight="30" />
+
+</LinearLayout>
 </LinearLayout>

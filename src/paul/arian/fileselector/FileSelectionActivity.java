@@ -8,10 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.NavUtils;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -27,14 +24,15 @@ public class FileSelectionActivity extends Activity {
     private static final String FILES_TO_UPLOAD = "upload";
     private File mainPath = new File(Environment.getExternalStorageDirectory() + "");
     private ArrayList<File> resultFileList;
-    
+
     private ListView directoryView;
     private ArrayList<File> directoryList = new ArrayList<File>();
     private ArrayList<String> directoryNames = new ArrayList<String>();
     private ListView fileView;
 	private ArrayList<File> fileList = new ArrayList<File>();
 	private ArrayList<String> fileNames = new ArrayList<String>();
-    Button ok;
+    Button ok, all, none;
+    TextView path;
 
     Integer[] imageId = {
             R.drawable.document,
@@ -53,10 +51,14 @@ public class FileSelectionActivity extends Activity {
         directoryView = (ListView)findViewById(R.id.directorySelectionList);
         fileView = (ListView)findViewById(R.id.fileSelectionList);
         ok = (Button)findViewById(R.id.ok);
+        all = (Button)findViewById(R.id.all);
+        none = (Button)findViewById(R.id.none);
         TextView goUpView = (TextView)findViewById(R.id.goUpTextView);
+        path = (TextView)findViewById(R.id.folderpath);
         goUpView.setClickable(true);
-        
+
         loadLists();
+
 
 
         
@@ -73,7 +75,23 @@ public class FileSelectionActivity extends Activity {
                 ok();
             }
         });
+
+        all.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                for (int i = 0; i < fileView.getCount(); i++)   fileView.setItemChecked(i, true);
+                }
+
+        });
+
+        none.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                for (int i = 0; i < fileView.getCount(); i++) {
+                    fileView.setItemChecked(i, false);
+                }
+            }
+        });
     }
+
 
     public void onGoUpClickListener(View v){
     	File parent = mainPath.getParentFile();
@@ -145,6 +163,7 @@ public class FileSelectionActivity extends Activity {
             fileView.setAdapter(fileAdapter);
             Log.d(TAG, "Lists created");
 
+            path.setText(mainPath.toString());
             iconload();
 		}
 	}

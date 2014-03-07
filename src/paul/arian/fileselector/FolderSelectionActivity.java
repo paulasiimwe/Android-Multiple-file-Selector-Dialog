@@ -34,6 +34,7 @@ public class FolderSelectionActivity extends Activity {
     private ArrayList<File> fileList = new ArrayList<File>();
     private ArrayList<String> fileNames = new ArrayList<String>();
     Button ok;
+    TextView path;
 
     Integer[] imageId = {
             R.drawable.document,
@@ -51,6 +52,7 @@ public class FolderSelectionActivity extends Activity {
         fileView = (ListView)findViewById(R.id.fileSelectionList);
         ok = (Button)findViewById(R.id.ok);
         TextView goUpView = (TextView)findViewById(R.id.goUpTextView);
+        path = (TextView)findViewById(R.id.folderpath);
         goUpView.setClickable(true);
 
         loadLists();
@@ -123,6 +125,7 @@ public class FolderSelectionActivity extends Activity {
             ArrayAdapter<String> fileAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, fileNames);
             fileView.setAdapter(fileAdapter);
             Log.d(TAG, "Lists created");
+            path.setText(mainPath.toString());
 
             iconload();
         }
