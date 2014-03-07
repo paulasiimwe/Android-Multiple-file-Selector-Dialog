@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Parian File Selector Dialog</string>
+    <string name="action_settings">Settings</string>
+    <string name="ok">OK</string>
+    <string name="files">Files</string>
+    <string name="directories">Folders</string>
+    <string name="goUp">Go Up</string>
+
+</resources>
