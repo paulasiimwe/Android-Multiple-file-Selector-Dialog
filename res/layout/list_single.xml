@@ -19,5 +19,7 @@
         android:focusable="false"
         android:clickable="false"
         android:layout_alignParentRight="true"
+        android:background="@drawable/customcheckbox_background"
+        android:button="@drawable/customcheckbox"
         />
 </paul.arian.fileselector.CheckableRelativeLayout>

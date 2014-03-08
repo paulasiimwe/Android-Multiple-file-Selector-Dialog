@@ -133,7 +133,7 @@ public class FolderSelectionActivity extends Activity {
 
             path.setText(mainPath.toString());
             iconload();
-        //}
+       // }
     }
 
     public void iconload(){

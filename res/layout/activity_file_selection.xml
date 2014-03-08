@@ -12,8 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text=""
-        android:textSize="20dp"
-        android:layout_margin="2dp" />
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/goUpTextView"

@@ -1,6 +1,8 @@
 This is an Android Library file selector dialog whose birth arose from this question I posted on Stackoverflow
 http://stackoverflow.com/questions/22095441/android-multiple-file-selector-chooser-dialog
 
+This oldest Android API level this Library has been successfully tested on is API level 8, But could work on earlier ones..... But it will definately run on those above 8.
+
 Massive credit goes to Arian JM of Madrid who created the majority of this library. I do not have his contacts but he answered my question
 Here is his profile on stackoverflow http://stackoverflow.com/users/3290971/arianjm
 
