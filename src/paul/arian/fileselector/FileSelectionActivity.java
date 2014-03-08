@@ -18,17 +18,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.commonsware.cwac.merge.MergeAdapter;
+
 public class FileSelectionActivity extends Activity {
 
     private static final String TAG = "FileSelection";
     private static final String FILES_TO_UPLOAD = "upload";
-    private File mainPath = new File(Environment.getExternalStorageDirectory() + "");
+    private File mainPath = new File(Environment.getExternalStorageDirectory()+"");
     private ArrayList<File> resultFileList;
 
     private ListView directoryView;
     private ArrayList<File> directoryList = new ArrayList<File>();
     private ArrayList<String> directoryNames = new ArrayList<String>();
-    private ListView fileView;
+    //private ListView fileView;
 	private ArrayList<File> fileList = new ArrayList<File>();
 	private ArrayList<String> fileNames = new ArrayList<String>();
     Button ok, all, none;
@@ -49,7 +51,6 @@ public class FileSelectionActivity extends Activity {
 
 
         directoryView = (ListView)findViewById(R.id.directorySelectionList);
-        fileView = (ListView)findViewById(R.id.fileSelectionList);
         ok = (Button)findViewById(R.id.ok);
         all = (Button)findViewById(R.id.all);
         none = (Button)findViewById(R.id.none);
@@ -64,8 +65,11 @@ public class FileSelectionActivity extends Activity {
         
         directoryView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				mainPath = directoryList.get(position);
-				loadLists();
+
+                if(position<directoryList.size()) {
+                    mainPath = directoryList.get(position);
+                    loadLists();
+                }
 
 			}
 		});
@@ -78,15 +82,16 @@ public class FileSelectionActivity extends Activity {
 
         all.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                for (int i = 0; i < fileView.getCount(); i++)   fileView.setItemChecked(i, true);
+                for (int i = directoryList.size(); i < directoryView.getCount(); i++)
+                    directoryView.setItemChecked(i, true);
                 }
 
         });
 
         none.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                for (int i = 0; i < fileView.getCount(); i++) {
-                    fileView.setItemChecked(i, false);
+                for (int i = directoryList.size(); i < directoryView.getCount(); i++) {
+                    directoryView.setItemChecked(i, false);
                 }
             }
         });
@@ -110,9 +115,9 @@ public class FileSelectionActivity extends Activity {
 
         resultFileList = new ArrayList<File>();
         
-        for(int i = 0 ; i < fileView.getCount() ; i++){
-        	if(fileView.isItemChecked(i)){
-        		resultFileList.add(fileList.get(i));
+        for(int i = 0 ; i < directoryView.getCount(); i++){
+        	if(directoryView.isItemChecked(i)){
+        		resultFileList.add(fileList.get(i-directoryList.size()));
         	}
         }
         if(resultFileList.isEmpty()){
@@ -159,9 +164,7 @@ public class FileSelectionActivity extends Activity {
     			fileNames.add(file.getName());
     		}
     		
-    		ArrayAdapter<String> fileAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, fileNames);
-            fileView.setAdapter(fileAdapter);
-            Log.d(TAG, "Lists created");
+
 
             path.setText(mainPath.toString());
             iconload();
@@ -194,8 +197,14 @@ public class FileSelectionActivity extends Activity {
         CustomListSingleOnly adapter1 = new CustomListSingleOnly(FileSelectionActivity.this, directoryNames.toArray(foldernames), imageId[2]);
         CustomList adapter2 = new CustomList(FileSelectionActivity.this, fileNames.toArray(filenames), imageId[0]);
 
-        directoryView.setAdapter(adapter1);
-        fileView.setAdapter(adapter2);
+
+        MergeAdapter adap = new MergeAdapter();
+
+        adap.addAdapter(adapter1);
+        adap.addAdapter(adapter2);
+
+
+        directoryView.setAdapter(adap);
     }
 
 }
