@@ -3,7 +3,6 @@ package paul.arian.fileselector;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.commonsware.cwac.merge.MergeAdapter;
 
 public class FileSelectionActivity extends Activity {
@@ -41,7 +39,7 @@ public class FileSelectionActivity extends Activity {
             R.drawable.document_gray,
             R.drawable.folder,
     };
-	
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +60,7 @@ public class FileSelectionActivity extends Activity {
 
 
 
-        
+
         directoryView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -108,13 +106,13 @@ public class FileSelectionActivity extends Activity {
     		loadLists();
     	}
     }
-    
+
 	public void ok(){
     	Log.d(TAG, "Upload clicked, finishing activity");
-        
+
 
         resultFileList = new ArrayList<File>();
-        
+
         for(int i = 0 ; i < directoryView.getCount(); i++){
         	if(directoryView.isItemChecked(i)){
         		resultFileList.add(fileList.get(i-directoryList.size()));
@@ -130,7 +128,7 @@ public class FileSelectionActivity extends Activity {
         setResult(Activity.RESULT_OK, result);
     	finish();
     }
-	
+
 	private void loadLists(){
 		FileFilter fileFilter = new FileFilter() {
 			public boolean accept(File file) {
@@ -142,8 +140,8 @@ public class FileSelectionActivity extends Activity {
 				return file.isDirectory();
 			}
 		};
-		
-		if(mainPath.exists() && mainPath.length()>0){
+
+		//if(mainPath.exists() && mainPath.length()>0){
 			//Lista de directorios
 			File[] tempDirectoryList = mainPath.listFiles(directoryFilter);
 			directoryList = new ArrayList<File>();
@@ -153,8 +151,8 @@ public class FileSelectionActivity extends Activity {
 				directoryNames.add(file.getName());
 			}
 			ArrayAdapter<String> directoryAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, directoryNames);
-	        directoryView.setAdapter(directoryAdapter);
-	        
+
+
 			//Lista de ficheros
 			File[] tempFileList = mainPath.listFiles(fileFilter);
 			fileList = new ArrayList<File>();
@@ -163,12 +161,12 @@ public class FileSelectionActivity extends Activity {
     			fileList.add(file);
     			fileNames.add(file.getName());
     		}
-    		
+
 
 
             path.setText(mainPath.toString());
             iconload();
-		}
+		//}
 	}
 
     /**@Override

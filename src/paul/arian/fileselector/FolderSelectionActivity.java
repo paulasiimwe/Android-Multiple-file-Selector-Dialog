@@ -108,7 +108,7 @@ public class FolderSelectionActivity extends Activity {
             }
         };
 
-        if(mainPath.exists() && mainPath.length()>0){
+        //if(mainPath.exists() && mainPath.length()>0){
             //Lista de directorios
             File[] tempDirectoryList = mainPath.listFiles(directoryFilter);
             directoryList = new ArrayList<File>();
@@ -133,7 +133,7 @@ public class FolderSelectionActivity extends Activity {
 
             path.setText(mainPath.toString());
             iconload();
-        }
+        //}
     }
 
     public void iconload(){
