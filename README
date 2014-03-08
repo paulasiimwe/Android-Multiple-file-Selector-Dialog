@@ -23,7 +23,10 @@ Add these activities in your manifest.
 <activity
             android:name="paul.arian.fileselector.FileSelectionActivity" />
 <activity
-            android:name="paul.arian.fileselector.FolderSelectionActivity" />
+            android:name="paul.arian.fileselector.FolderSelectionActivity" /
+
+
+            Then also add merge 1.01.jar located in the repo to this library's build path or module, I used android studio to add it sooo, 
 
 #########################################################################################
 To start the fileSelector 
