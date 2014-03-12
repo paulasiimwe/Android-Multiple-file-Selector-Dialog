@@ -14,15 +14,7 @@
         android:text=""
         android:textSize="15dp" />
 
-    <Button
-        android:id="@+id/goUpTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/goUp"
-        android:textSize="20dp"
-        android:layout_margin="5dp"
-        android:onClick="onGoUpClickListener" />
+
     
     <ListView
         android:id="@+id/directorySelectionList"
@@ -43,21 +35,13 @@
         android:layout_height="wrap_content"
         android:text="@string/all"
         android:id="@+id/all"
-        android:layout_weight="30" />
+        android:layout_weight="45" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/ok"
             android:id="@+id/ok"
-            android:layout_weight="30" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/none"
-            android:id="@+id/none"
-            android:layout_weight="30" />
-
+            android:layout_weight="45" />
 </LinearLayout>
 </LinearLayout>

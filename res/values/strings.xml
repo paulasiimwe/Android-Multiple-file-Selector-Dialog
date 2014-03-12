@@ -7,8 +7,8 @@
     <string name="files">Files</string>
     <string name="directories">Folders</string>
     <string name="goUp">Go Up</string>
-    <string name="all">All</string>
-    <string name="none">None</string>
+    <string name="all">Check All</string>
+    <string name="none">Uncheck All</string>
 
 
 </resources>

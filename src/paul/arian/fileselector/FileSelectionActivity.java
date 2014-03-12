@@ -15,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.commonsware.cwac.merge.MergeAdapter;
 
 public class FileSelectionActivity extends Activity {
@@ -31,8 +30,9 @@ public class FileSelectionActivity extends Activity {
     //private ListView fileView;
 	private ArrayList<File> fileList = new ArrayList<File>();
 	private ArrayList<String> fileNames = new ArrayList<String>();
-    Button ok, all, none;
+    Button ok, all;
     TextView path;
+    Boolean Switch = false;
 
     Integer[] imageId = {
             R.drawable.document,
@@ -51,10 +51,7 @@ public class FileSelectionActivity extends Activity {
         directoryView = (ListView)findViewById(R.id.directorySelectionList);
         ok = (Button)findViewById(R.id.ok);
         all = (Button)findViewById(R.id.all);
-        none = (Button)findViewById(R.id.none);
-        TextView goUpView = (TextView)findViewById(R.id.goUpTextView);
         path = (TextView)findViewById(R.id.folderpath);
-        goUpView.setClickable(true);
 
         loadLists();
 
@@ -64,8 +61,14 @@ public class FileSelectionActivity extends Activity {
         directoryView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if(position<directoryList.size()) {
-                    mainPath = directoryList.get(position);
+                File lastPath = mainPath;
+                try {
+                    if (position < directoryList.size()) {
+                        mainPath = directoryList.get(position);
+                        loadLists();
+                    }
+                }catch (Throwable e){
+                    mainPath = lastPath;
                     loadLists();
                 }
 
@@ -80,31 +83,37 @@ public class FileSelectionActivity extends Activity {
 
         all.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                for (int i = directoryList.size(); i < directoryView.getCount(); i++)
-                    directoryView.setItemChecked(i, true);
+                if(!Switch){
+                    for (int i = directoryList.size(); i < directoryView.getCount(); i++){
+                        directoryView.setItemChecked(i, true);
+                    }
+                    all.setText(getString(R.string.none));
+                    Switch = true;
+                }else if(Switch){
+                    for (int i = directoryList.size(); i < directoryView.getCount(); i++) {
+                        directoryView.setItemChecked(i, false);
+                    }
+                    all.setText(getString(R.string.all));
+                    Switch = false;
+                }
                 }
 
-        });
-
-        none.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                for (int i = directoryList.size(); i < directoryView.getCount(); i++) {
-                    directoryView.setItemChecked(i, false);
-                }
-            }
         });
     }
 
+    public void onBackPressed() {
+        try {
+            if(mainPath.equals(Environment.getExternalStorageDirectory().getParentFile().getParentFile())){
+                finish();
+            }else{
+                File parent = mainPath.getParentFile();
+                mainPath = parent;
+                loadLists();
+            }
 
-    public void onGoUpClickListener(View v){
-    	File parent = mainPath.getParentFile();
-    	Log.d(TAG, parent.toString());
-    	if(mainPath.equals(Environment.getExternalStorageDirectory())){
-    		Toast.makeText(this, "Can't exit external storage", Toast.LENGTH_SHORT).show();
-    	}else{
-    		mainPath = parent;
-    		loadLists();
-    	}
+        }catch (Throwable e){
+
+        }
     }
 
 	public void ok(){
@@ -166,6 +175,7 @@ public class FileSelectionActivity extends Activity {
 
             path.setText(mainPath.toString());
             iconload();
+            setTitle(mainPath.getName());
 		//}
 	}
 
