@@ -1,8 +1,10 @@
 # Android Multiple file Selector Dialog
 
-Supports API 8(+)
+
 
 ###Introduction
+
+**Supports API 8(+)**
 
 This is an Android Library file selector dialog whose birth arose from this question I posted on Stackoverflow
 http://stackoverflow.com/questions/22095441/android-multiple-file-selector-chooser-dialog
