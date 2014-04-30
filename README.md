@@ -72,7 +72,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 To start folder selection activity,
 
-1st import 
+import:
 ```java
 import paul.arian.fileselector.FolderSelectionActivity;
 ```
