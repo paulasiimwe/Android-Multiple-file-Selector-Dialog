@@ -21,14 +21,14 @@ Those on Android Studio, hit the project properties button, go to modules, click
 
 Usage is easy. 
 Add these activities in your manifest.
-
+```
 <activity
             android:name="paul.arian.fileselector.FileSelectionActivity" />
 <activity
-            android:name="paul.arian.fileselector.FolderSelectionActivity" /
+            android:name="paul.arian.fileselector.FolderSelectionActivity" />
 
-
-            Then also add merge 1.01.jar located in the repo to this library's build path or module, I used android studio to add it sooo, 
+```
+Then also add merge 1.01.jar located in the repo to this library's build path or module, I used android studio to add it sooo, 
 
 #########################################################################################
 To start the fileSelector 
@@ -38,13 +38,14 @@ import paul.arian.fileselector.FileSelectionActivity;
 
 use this code
 
-
+```java
 Intent intent = new Intent(getBaseContext(), FileSelectionActivity.class);
                 startActivityForResult(intent, 0);
-
+```
 
 To capture the result, use this method.
 
+```java
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == 0 && resultCode == RESULT_OK){
             ArrayList<File> Files = (ArrayList<File>) data.getSerializableExtra(FILES_TO_UPLOAD); //file array list
@@ -62,28 +63,28 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 	}
 
-
+```
 ##########################################################################
 To start folder selection activity,
 
 1st import 
-
+```java
 import paul.arian.fileselector.FolderSelectionActivity;
-
+```
 to start use this code.
-
+```java
 Intent intent = new Intent(getBaseContext(), FolderSelectionActivity.class);
                 startActivityForResult(intent, 2);
-
+```
 To capture, use this method.
 
-
+```
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == 2 && resultCode == RESULT_OK){
             String FolderPath = data.getSerializableExtra(FILES_TO_UPLOAD).toString(); //The path of folder(directory) is stored in FolderPath string.
         }
     }
-
+```
 
 
 
