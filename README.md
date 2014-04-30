@@ -68,7 +68,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 ```
 
-#### File Selector
+#### Folder Selector
 
 To start folder selection activity,
 
