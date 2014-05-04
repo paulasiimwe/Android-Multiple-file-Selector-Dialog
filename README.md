@@ -1,10 +1,13 @@
+# Android Multiple File Selector Dialog
+
+
+
+###Introduction
+
+**Supports API 8(+)**
+
 This is an Android Library file selector dialog whose birth arose from this question I posted on Stackoverflow
 http://stackoverflow.com/questions/22095441/android-multiple-file-selector-chooser-dialog
-
-This oldest Android API level this Library has been successfully tested on is API level 8, But could work on earlier ones..... But it will definately run on those above 8.
-
-Massive credit goes to Arian JM of Madrid who created the majority of this library. I do not have his contacts but he answered my question
-Here is his profile on stackoverflow http://stackoverflow.com/users/3290971/arianjm
 
 This library starts a file/folder selector activity and returns the file(s) (Yes Multiple option too) or folder.
 The library is still very simple and not very aesthetically pleasing so your contribution is highly welcome.
@@ -14,37 +17,38 @@ Im looking forward to assistence to
 -the activity starting from the last folder location accessed, with the checked files still checked. 
  But any other improvements are highly welcome.
 
-
 Im not yet conversant with gradle so I don't know if it will work with such systems. But on eclipse simply add the library in your project's android properties.
 Those on Android Studio, hit the project properties button, go to modules, click the green "+" button at the top, select import module, navigate to the library, go through the prompts then once it's imported. click on your project's module, click on the "+" button on the right, add module dependancy, click Parian...
 
 
-Usage is easy. 
+###Usage
 Add these activities in your manifest.
-
+```
 <activity
             android:name="paul.arian.fileselector.FileSelectionActivity" />
 <activity
-            android:name="paul.arian.fileselector.FolderSelectionActivity" /
+            android:name="paul.arian.fileselector.FolderSelectionActivity" />
 
+```
+Then also **add merge 1.01.jar** located in the repo to this library's build path or module
 
-            Then also add merge 1.01.jar located in the repo to this library's build path or module, I used android studio to add it sooo, 
+#### File Selector
 
-#########################################################################################
 To start the fileSelector 
 first import.
-
+```java
 import paul.arian.fileselector.FileSelectionActivity;
-
+```
 use this code
 
-
+```java
 Intent intent = new Intent(getBaseContext(), FileSelectionActivity.class);
                 startActivityForResult(intent, 0);
-
+```
 
 To capture the result, use this method.
 
+```java
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == 0 && resultCode == RESULT_OK){
             ArrayList<File> Files = (ArrayList<File>) data.getSerializableExtra(FILES_TO_UPLOAD); //file array list
@@ -62,30 +66,34 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 	}
 
+```
 
-##########################################################################
+#### Folder Selector
+
 To start folder selection activity,
 
-1st import 
-
+import:
+```java
 import paul.arian.fileselector.FolderSelectionActivity;
-
+```
 to start use this code.
-
+```java
 Intent intent = new Intent(getBaseContext(), FolderSelectionActivity.class);
                 startActivityForResult(intent, 2);
-
+```
 To capture, use this method.
 
-
+```
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == 2 && resultCode == RESULT_OK){
             String FolderPath = data.getSerializableExtra(FILES_TO_UPLOAD).toString(); //The path of folder(directory) is stored in FolderPath string.
         }
     }
+```
 
-
-
+###### Credits
+Massive credit goes to Arian JM of Madrid who created the majority of this library. I do not have his contacts but he answered my question
+Here is his profile on stackoverflow http://stackoverflow.com/users/3290971/arianjm
 
 Looking forward to your feedback, collaboration and assistence.
 
