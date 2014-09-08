@@ -6,7 +6,8 @@
 
 **Supports API 8(+)**
 
-This is an Android Library file selector dialog whose birth arose from this question I posted on Stackoverflow
+This is a free to use,change and reproduce Android Library file selector dialog whose birth arose from this question I posted on Stackoverflow
+
 http://stackoverflow.com/questions/22095441/android-multiple-file-selector-chooser-dialog
 
 This library starts a file/folder selector activity and returns the file(s) (Yes Multiple option too) or folder.
@@ -64,7 +65,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         }else{
         }
 
-	}
+    }
 
 ```
 
@@ -92,13 +93,18 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ```
 
 ###### Credits
-Massive credit goes to Arian JM of Madrid who created the majority of this library. I do not have his contacts but he answered my question
+Massive credit goes to Arian JM of Madrid who created the majority of this library.
+
 Here is his profile on stackoverflow http://stackoverflow.com/users/3290971/arianjm
 
 Looking forward to your feedback, collaboration and assistence.
 
 regards,
+
 Paul Asiimwe,
+
 Kampala, Uganda,
+
 https://google.com/+PaulAsiimwe
-https://twitter.com/paulasiimwet
+
+https://twitter.com/_paulasiimwe
