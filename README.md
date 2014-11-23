@@ -15,13 +15,11 @@ http://stackoverflow.com/questions/22095441/android-multiple-file-selector-choos
 This library starts a file/folder selector activity and returns the file(s) (Yes Multiple option too) or folder.
 The library is still very simple and not very aesthetically pleasing so your contribution is highly welcome.
 
-Im looking forward to assistence to 
--add thumbnail views for image files listed.
--the activity starting from the last folder location accessed, with the checked files still checked. 
- But any other improvements are highly welcome.
-
-Im not yet conversant with gradle so I don't know if it will work with such systems. But on eclipse simply add the library in your project's android properties.
-Those on Android Studio, hit the project properties button, go to modules, click the green "+" button at the top, select import module, navigate to the library, go through the prompts then once it's imported. click on your project's module, click on the "+" button on the right, add module dependancy, click Parian...
+###Features
+Thumbnails for Images
+AutoScroll to last ScrollPosition on Back Pressed
+New Folder Button
+Button to access External/Internal Storage **not fully tested** :-)
 
 
 ###Usage
@@ -33,7 +31,7 @@ Add these activities in your manifest.
             android:name="paul.arian.fileselector.FolderSelectionActivity" />
 
 ```
-Then also **add merge 1.01.jar** located in the repo to this library's build path or module
+Then also **add merge 1.04.jar** and **picasso jar** located in the repo to this library's build path or module
 
 #### File Selector
 
@@ -97,7 +95,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ###### Credits
 Massive credit goes to Arian JM of Madrid who created the majority of this library.
 
-Here is his profile on stackoverflow http://stackoverflow.com/users/3290971/arianjm
+Here is his Github: https://github.com/ArianJM
 
 Looking forward to your feedback, collaboration and assistence.
 
