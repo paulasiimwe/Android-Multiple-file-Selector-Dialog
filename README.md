@@ -17,8 +17,11 @@ The library is still very simple and not very aesthetically pleasing so your con
 
 ###Features
 Thumbnails for Images
+
 AutoScroll to last ScrollPosition on Back Pressed
+
 New Folder Button
+
 Button to access External/Internal Storage **not fully tested** :-)
 
 
