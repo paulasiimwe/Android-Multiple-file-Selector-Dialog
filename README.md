@@ -4,7 +4,7 @@
 
 ###Introduction
 
-![Alt text](/relative/https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/Sample.png?raw=true "Optional Title")
+![ScreenShot](http://i.stack.imgur.com/LGvgr.png)
 
 **Supports API 8(+)**
 
