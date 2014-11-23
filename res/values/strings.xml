@@ -8,7 +8,13 @@
     <string name="directories">Folders</string>
     <string name="goUp">Go Up</string>
     <string name="all">Check All</string>
+    <string name="cancel">Cancel</string>
     <string name="none">Uncheck All</string>
+    <string name="ext">External</string>
+    <string name="Int">Internal</string>
+    <string name="New">New Folder</string>
+    <string name="CNew">Enter New Folder Name</string>
+    <string name="create">Create</string>
 
 
 </resources>

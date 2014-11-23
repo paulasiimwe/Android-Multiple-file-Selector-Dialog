@@ -4,6 +4,8 @@
 
 ###Introduction
 
+![Screenshot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/raw/master/Sample.png)
+
 **Supports API 8(+)**
 
 This is a free to use,change and reproduce Android Library file selector dialog whose birth arose from this question I posted on Stackoverflow

@@ -10,16 +10,26 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
+
 public class CustomListSingleOnly extends ArrayAdapter<String>{
     private final Activity context;
     private final String[] web;
-    private final Integer imageId;
-    public CustomListSingleOnly(Activity context, String[] web, Integer imageId) {
+    String ParentFolder;
+    public CustomListSingleOnly(Activity context, String[] web ,Boolean fromfolderActivity) {
         super(context, R.layout.list_single_only, web);
         this.context = context;
         this.web = web;
-        this.imageId = imageId;
+        if(fromfolderActivity){//Determines if Class was called from folderSelectionActivity
+            ParentFolder = FolderSelectionActivity.mainPath.getPath();
+        }else{
+            ParentFolder = FileSelectionActivity.mainPath.getPath();
+        }
     }
+
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
@@ -27,7 +37,16 @@ public class CustomListSingleOnly extends ArrayAdapter<String>{
         TextView txtTitle = (TextView) rowView.findViewById(R.id.txt);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.img);
         txtTitle.setText(web[position]);
-        imageView.setImageResource(imageId);
+        if((new File(ParentFolder+"/"+web[position])).isDirectory()){
+            imageView.setImageResource(R.drawable.folder);//sets to folder
+        }else if((new File(ParentFolder+"/"+web[position])).isFile()) {//sets to file
+            Picasso.with(context).load(
+                    new File(
+                            FolderSelectionActivity.mainPath.getPath() + "/" + web[position]
+                    )).placeholder(R.drawable.blank).resize(50, 50).into(imageView);
+        }
         return rowView;
     }
+
 }
+

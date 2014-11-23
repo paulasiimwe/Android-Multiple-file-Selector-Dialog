@@ -8,16 +8,6 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
 
-    <application
-        android:icon="@drawable/folder"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <activity
-            android:name=".FileSelectionActivity" >
-
-        </activity>
-        
-
-    </application>
+    
 
 </manifest>

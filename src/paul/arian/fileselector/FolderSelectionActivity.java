@@ -3,7 +3,12 @@ package paul.arian.fileselector;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,7 +27,7 @@ public class FolderSelectionActivity extends Activity {
 
     private static final String TAG = "FileSelection";
     private static final String FILES_TO_UPLOAD = "upload";
-    private File mainPath = new File(Environment.getExternalStorageDirectory() + "");
+    public static File mainPath = new File(Environment.getExternalStorageDirectory()+"");
     private ArrayList<File> resultFileList;
 
     private ListView directoryView;
@@ -29,14 +35,15 @@ public class FolderSelectionActivity extends Activity {
     private ArrayList<String> directoryNames = new ArrayList<String>();
     private ArrayList<File> fileList = new ArrayList<File>();
     private ArrayList<String> fileNames = new ArrayList<String>();
-    Button ok, all;
+    Button ok, all,cancel,storage,New;
     TextView path;
 
-    Integer[] imageId = {
-            R.drawable.document,
-            R.drawable.document_gray,
-            R.drawable.folder,
-    };
+
+
+
+    Boolean switcher = false;
+    String primary_sd;
+    String secondary_sd;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,11 +54,19 @@ public class FolderSelectionActivity extends Activity {
         directoryView = (ListView)findViewById(R.id.directorySelectionList);
         ok = (Button)findViewById(R.id.ok);
         all = (Button)findViewById(R.id.all);
+        cancel = (Button)findViewById(R.id.cancel);
+        storage = (Button)findViewById(R.id.storage);
+        New = (Button)findViewById(R.id.New);
         path = (TextView)findViewById(R.id.folderpath);
 
         all.setEnabled(false);
 
         loadLists();
+
+        ExtStorageSearch();
+        if(secondary_sd==null){
+            storage.setEnabled(false);
+        }
 
         directoryView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -71,6 +86,65 @@ public class FolderSelectionActivity extends Activity {
         ok.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 ok();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                finish();
+            }
+        });
+
+        storage.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                try {
+                    if (!switcher) {
+                        mainPath = new File(secondary_sd);
+                        loadLists();
+                        switcher = true;
+                        storage.setText(getString(R.string.Int));
+                    } else {
+                        mainPath = new File(primary_sd);
+                        loadLists();
+                        switcher = false;
+                        storage.setText(getString(R.string.ext));
+                    }
+                }catch (Throwable e){
+
+                }
+            }
+        });
+
+        New.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
+                alert.setTitle( getString(R.string.New) );
+                alert.setMessage( getString(R.string.CNew) );
+
+                final EditText input = new EditText(v.getContext());
+                alert.setView(input);
+
+                alert.setPositiveButton(getString(R.string.create), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String fileName = input.getText().toString();
+                        // Verify if a value has been entered.
+                        if(fileName != null && fileName.length() > 0) {
+                            // Notify the listeners.
+                            File newFolder = new File(mainPath.getPath()+"/"+fileName+"/");
+                            newFolder.mkdirs();
+                            loadLists();
+                        }
+                    }
+                });
+                alert.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Do nothing, automatically the dialog is going to be closed.
+                    }
+                });
+
+                // Show the dialog.
+                alert.show();
+
             }
         });
     }
@@ -113,7 +187,18 @@ public class FolderSelectionActivity extends Activity {
         //if(mainPath.exists() && mainPath.length()>0){
             //Lista de directorios
             File[] tempDirectoryList = mainPath.listFiles(directoryFilter);
-            directoryList = new ArrayList<File>();
+
+        if (tempDirectoryList != null && tempDirectoryList.length > 1) {
+            Arrays.sort(tempDirectoryList, new Comparator<File>() {
+                @Override
+                public int compare(File object1, File object2) {
+                    return object1.getName().compareTo(object2.getName());
+                }
+            });
+        }
+
+
+        directoryList = new ArrayList<File>();
             directoryNames = new ArrayList<String>();
             for(File file: tempDirectoryList){
                 directoryList.add(file);
@@ -124,6 +209,16 @@ public class FolderSelectionActivity extends Activity {
 
             //Lista de ficheros
             File[] tempFileList = mainPath.listFiles(fileFilter);
+
+        if (tempFileList != null && tempFileList.length > 1) {
+            Arrays.sort(tempFileList, new Comparator<File>() {
+                @Override
+                public int compare(File object1, File object2) {
+                    return object1.getName().compareTo(object2.getName());
+                }
+            });
+        }
+
             fileList = new ArrayList<File>();
             fileNames = new ArrayList<String>();
             for(File file : tempFileList){
@@ -145,8 +240,8 @@ public class FolderSelectionActivity extends Activity {
         String[] filenames = new String[fileNames.size()];
         filenames = fileNames.toArray(filenames);
 
-        CustomListSingleOnly adapter1 = new CustomListSingleOnly(FolderSelectionActivity.this, directoryNames.toArray(foldernames), imageId[2]);
-        CustomListSingleOnly adapter2 = new CustomListSingleOnly(FolderSelectionActivity.this, fileNames.toArray(filenames), imageId[1]);
+        CustomListSingleOnly adapter1 = new CustomListSingleOnly(FolderSelectionActivity.this, directoryNames.toArray(foldernames), true);
+        CustomListSingleOnly adapter2 = new CustomListSingleOnly(FolderSelectionActivity.this, fileNames.toArray(filenames), true);
 
 
         MergeAdapter adap = new MergeAdapter();
@@ -156,6 +251,31 @@ public class FolderSelectionActivity extends Activity {
 
 
         directoryView.setAdapter(adap);
+    }
+
+    public void ExtStorageSearch(){
+        String[] extStorlocs = {"/storage/sdcard1","/storage/extsdcard","/storage/sdcard0/external_sdcard","/mnt/extsdcard",
+                "/mnt/sdcard/external_sd","/mnt/external_sd","/mnt/media_rw/sdcard1","/removable/microsd","/mnt/emmc",
+                "/storage/external_SD","/storage/ext_sd","/storage/removable/sdcard1","/data/sdext","/data/sdext2",
+                "/data/sdext3","/data/sdext4","/storage/sdcard0"};
+
+        //First Attempt
+        primary_sd = System.getenv("EXTERNAL_STORAGE");
+        secondary_sd = System.getenv("SECONDARY_STORAGE");
+
+
+        if(primary_sd == null) {
+            primary_sd = Environment.getExternalStorageDirectory()+"";
+        }
+        if(secondary_sd == null) {//if fail, search among known list of extStorage Locations
+            for(String string: extStorlocs){
+                if((new File(string)).exists() && (new File(string)).isDirectory() ){
+                    secondary_sd = string;
+                    break;
+                }
+            }
+        }
+
     }
 
 }
