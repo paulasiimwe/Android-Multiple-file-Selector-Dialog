@@ -4,7 +4,7 @@
 
 ###Introduction
 
-![Screenshot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/raw/master/Sample.png)
+![Screenshot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/Sample.png)
 
 **Supports API 8(+)**
 
