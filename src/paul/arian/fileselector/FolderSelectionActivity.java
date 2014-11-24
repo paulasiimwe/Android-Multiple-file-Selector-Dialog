@@ -45,6 +45,9 @@ public class FolderSelectionActivity extends Activity {
     String primary_sd;
     String secondary_sd;
 
+    int index = 0;
+    int top = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +73,11 @@ public class FolderSelectionActivity extends Activity {
 
         directoryView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                index = directoryView.getFirstVisiblePosition();
+                View v = directoryView.getChildAt(0);
+                top = (v == null) ? 0 : v.getTop();
+
                 File lastPath = mainPath;
                 try {
                     if (position < directoryList.size()) {
@@ -158,6 +166,7 @@ public class FolderSelectionActivity extends Activity {
                 File parent = mainPath.getParentFile();
                 mainPath = parent;
                 loadLists();
+                directoryView.setSelectionFromTop(index, top);
             }
 
         }catch (Throwable e){

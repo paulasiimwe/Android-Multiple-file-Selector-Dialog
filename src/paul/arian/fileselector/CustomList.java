@@ -33,7 +33,7 @@ public class CustomList extends ArrayAdapter<String>{
         Picasso.with(context).load(
                 new File(
                         FileSelectionActivity.mainPath.getPath()+"/"+web[position]
-                )).placeholder(R.drawable.blank).resize(50, 50).into(imageView);
+                )).placeholder(R.drawable.document).resize(50, 50).into(imageView);
         return rowView;
     }
 }
