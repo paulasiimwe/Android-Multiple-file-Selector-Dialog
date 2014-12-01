@@ -6,7 +6,7 @@
 
 ![ScreenShot](https://raw.github.com/tapaulo/Android-Multiple-file-Selector-Dialog/master/sample.png)
 ![ScreenShot](https://raw.github.com/tapaulo/Android-Multiple-file-Selector-Dialog/master/Arabic_locale_sample.png)
-![ScreenShot](https://raw.github.com/tapaulo/Android-Multiple-file-Selector-Dialog/master/French_locale_sample.png)
+![ScreenShot](https://raw.github.com/tapaulo/Android-Multiple-file-Selector-Dialog/master/french_locale_sample.png)
 ![ScreenShot](https://raw.github.com/tapaulo/Android-Multiple-file-Selector-Dialog/master/German_locale_sample.png)
 ![ScreenShot](https://raw.github.com/tapaulo/Android-Multiple-file-Selector-Dialog/master/Japan_locale_sample.png)
 
