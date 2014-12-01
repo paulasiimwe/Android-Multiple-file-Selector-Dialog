@@ -4,7 +4,11 @@
 
 ###Introduction
 
-![ScreenShot](http://i.stack.imgur.com/LGvgr.png)
+![ScreenShot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/sample.png)
+![ScreenShot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/Arabic_locale_sample.png)
+![ScreenShot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/French_locale_sample.png)
+![ScreenShot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/German_locale_sample.png)
+![ScreenShot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/Japan_locale_sample.png)
 
 **Supports API 8(+)**
 
@@ -18,6 +22,8 @@ The library is still very simple and not very aesthetically pleasing so your con
 ###Features
 Thumbnails for Images
 
+Language support for English, Arabic, Simplified Chinese, German, French, Indonesian, Italian, Korean, Japanese, Russian, Spanish and Portuguese
+
 AutoScroll to last ScrollPosition on Back Pressed
 
 New Folder Button
@@ -26,14 +32,21 @@ Button to access External/Internal Storage **not fully tested** :-)
 
 
 ###Usage
-Add these activities in your manifest.
+Add these activities in your manifest Within the <Application Tag>.
 ```
+
 <activity
             android:name="paul.arian.fileselector.FileSelectionActivity" />
 <activity
             android:name="paul.arian.fileselector.FolderSelectionActivity" />
 
 ```
+Add this Permission too
+```
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+```
+
+    
 Then also **add merge 1.04.jar** and **picasso jar** located in the repo to this library's build path or module
 
 #### File Selector

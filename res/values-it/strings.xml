@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <string name="app_name">Casella di dialogo del selettore di file Parian</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="ok">OK</string>
+    <string name="files">File</string>
+    <string name="directories">Cartelle</string>
+    <string name="goUp">Salire</string>
+    <string name="all">Selezionare tutto</string>
+    <string name="cancel">Cancellare</string>
+    <string name="none">Deselezionare tutto</string>
+    <string name="ext">Esterno</string>
+    <string name="Int">Interno</string>
+    <string name="New">Nuova cartella</string>
+    <string name="CNew">Inserire il nome della Nuova cartella</string>
+    <string name="create">Creare</string>
+
+
+</resources>

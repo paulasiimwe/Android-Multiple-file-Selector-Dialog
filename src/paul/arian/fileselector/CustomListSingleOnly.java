@@ -19,15 +19,11 @@ public class CustomListSingleOnly extends ArrayAdapter<String>{
     private final Activity context;
     private final String[] web;
     String ParentFolder;
-    public CustomListSingleOnly(Activity context, String[] web ,Boolean fromfolderActivity) {
+    public CustomListSingleOnly(Activity context, String[] web ,String path) {
         super(context, R.layout.list_single_only, web);
         this.context = context;
         this.web = web;
-        if(fromfolderActivity){//Determines if Class was called from folderSelectionActivity
-            ParentFolder = FolderSelectionActivity.mainPath.getPath();
-        }else{
-            ParentFolder = FileSelectionActivity.mainPath.getPath();
-        }
+            ParentFolder = path;
     }
 
     @Override
@@ -42,7 +38,7 @@ public class CustomListSingleOnly extends ArrayAdapter<String>{
         }else if((new File(ParentFolder+"/"+web[position])).isFile()) {//sets to file
             Picasso.with(context).load(
                     new File(
-                            FolderSelectionActivity.mainPath.getPath() + "/" + web[position]
+                            ParentFolder + "/" + web[position]
                     )).placeholder(R.drawable.document_gray).resize(50, 50).into(imageView);
         }
         return rowView;

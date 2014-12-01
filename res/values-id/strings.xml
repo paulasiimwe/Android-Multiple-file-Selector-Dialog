@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <string name="app_name">Dialog Pemilih File Parian</string>
+    <string name="action_settings">Pengaturan</string>
+    <string name="ok">OKE</string>
+    <string name="files">File</string>
+    <string name="directories">Folder</string>
+    <string name="goUp">Naik</string>
+    <string name="all">Centang Semua</string>
+    <string name="cancel">Batalkan</string>
+    <string name="none">Hapus Semua Centang</string>
+    <string name="ext">Eksternal</string>
+    <string name="Int">Internal</string>
+    <string name="New">Folder Baru</string>
+    <string name="CNew">Masukkan Nama Folder Baru</string>
+    <string name="create">Buat</string>
+
+
+</resources>

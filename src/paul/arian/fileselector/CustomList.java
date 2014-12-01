@@ -18,10 +18,12 @@ import java.io.File;
 public class CustomList extends ArrayAdapter<String>{
     private final Activity context;
     private final String[] web;
-    public CustomList(Activity context, String[] web) {
+    String ParentFolder;
+    public CustomList(Activity context, String[] web,String path) {
         super(context, R.layout.list_single, web);
         this.context = context;
         this.web = web;
+        ParentFolder = path;
     }
     @Override
     public View getView(int position, View view, ViewGroup parent) {
@@ -32,7 +34,7 @@ public class CustomList extends ArrayAdapter<String>{
         txtTitle.setText(web[position]);
         Picasso.with(context).load(
                 new File(
-                        FileSelectionActivity.mainPath.getPath()+"/"+web[position]
+                        ParentFolder+"/"+web[position]
                 )).placeholder(R.drawable.document).resize(50, 50).into(imageView);
         return rowView;
     }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <string name="app_name">Dialogue de sélection de fichier de Parian</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="ok">OK</string>
+    <string name="files">Fichiers</string>
+    <string name="directories">Dossiers</string>
+    <string name="goUp">Monter</string>
+    <string name="all">Tout cocher</string>
+    <string name="cancel">Annuler</string>
+    <string name="none">Tout décocher</string>
+    <string name="ext">Externe</string>
+    <string name="Int">Interne</string>
+    <string name="New">Nouveau dossier</string>
+    <string name="CNew">Saisissez le nouveau nom de dossier</string>
+    <string name="create">Créer</string>
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <string name="app_name">Parian文件选择器对话框</string>
+    <string name="action_settings">设置</string>
+    <string name="ok">确定</string>
+    <string name="files">文件</string>
+    <string name="directories">文件夹</string>
+    <string name="goUp">向上</string>
+    <string name="all">全选</string>
+    <string name="cancel">取消</string>
+    <string name="none">取消全选</string>
+    <string name="ext">外部</string>
+    <string name="Int">内部</string>
+    <string name="New">新建文件夹</string>
+    <string name="CNew">输入新文件夹名称</string>
+    <string name="create">创建</string>
+
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <string name="app_name">Parian Datei-Auswahl-Dialog</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="ok">Ok</string>
+    <string name="files">Dateien</string>
+    <string name="directories">Ordner</string>
+    <string name="goUp">Nach oben</string>
+    <string name="all">Alle überprüfen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="none">Alle deaktivieren</string>
+    <string name="ext">Extern</string>
+    <string name="Int">Intern</string>
+    <string name="New">Neuer Ordner</string>
+    <string name="CNew">Geben Sie einen neuen Ordner-Namen ein</string>
+    <string name="create">Erstellen</string>
+
+
+</resources>

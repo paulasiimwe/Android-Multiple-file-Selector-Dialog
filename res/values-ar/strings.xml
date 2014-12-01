@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <string name="app_name">مربع حوار تحديد الملفات Parian</string>
+    <string name="action_settings">الإعدادات</string>
+    <string name="ok">موافق</string>
+    <string name="files">ملفات</string>
+    <string name="directories">مجلدات</string>
+    <string name="goUp">انتقل لأعلى</string>
+    <string name="all">تحديد الكل</string>
+    <string name="cancel">إلغاء</string>
+    <string name="none">إلغاء تحديد الكل</string>
+    <string name="ext">خارجي</string>
+    <string name="Int">داخلي</string>
+    <string name="New">مجلد جديد</string>
+    <string name="CNew">أدخل اسم المجلد الجديد</string>
+    <string name="create">إنشاء</string>
+
+
+</resources>

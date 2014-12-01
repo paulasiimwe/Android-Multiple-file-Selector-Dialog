@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <string name="app_name">Diálogo de selección de archivo parian</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="ok">De acuerdo</string>
+    <string name="files">Archivos</string>
+    <string name="directories">Carpetas</string>
+    <string name="goUp">Ir arriba</string>
+    <string name="all">Seleccionar Todos</string>
+    <string name="cancel">Cancelar</string>
+    <string name="none">Deseleccionar Todos</string>
+    <string name="ext">Externo</string>
+    <string name="Int">Interno</string>
+    <string name="New">Nueva carpeta</string>
+    <string name="CNew">Introducir nombre de Nueva carpeta</string>
+    <string name="create">Crear</string>
+
+</resources>

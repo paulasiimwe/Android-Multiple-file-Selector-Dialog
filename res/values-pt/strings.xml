@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <string name="app_name">Caixa de diálogo Seletor de ficheiros Parian</string>
+    <string name="action_settings">Definições</string>
+    <string name="ok">OK</string>
+    <string name="files">Ficheiros</string>
+    <string name="directories">Pastas</string>
+    <string name="goUp">Subir</string>
+    <string name="all">Selecionar tudo</string>
+    <string name="cancel">Cancelar</string>
+    <string name="none">Desmarcar tudo</string>
+    <string name="ext">Externo</string>
+    <string name="Int">Interno</string>
+    <string name="New">Nova pasta</string>
+    <string name="CNew">Introduza o nome da nova pasta</string>
+    <string name="create">Criar</string>
+
+</resources>

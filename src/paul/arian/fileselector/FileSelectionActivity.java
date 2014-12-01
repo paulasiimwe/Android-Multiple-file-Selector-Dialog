@@ -23,7 +23,7 @@ public class FileSelectionActivity extends Activity {
 
     private static final String TAG = "FileSelection";
     private static final String FILES_TO_UPLOAD = "upload";
-    public static File mainPath = new File(Environment.getExternalStorageDirectory()+"");
+    File mainPath = new File(Environment.getExternalStorageDirectory()+"");
     private ArrayList<File> resultFileList;
 
     private ListView directoryView;
@@ -60,6 +60,7 @@ public class FileSelectionActivity extends Activity {
         storage = (Button)findViewById(R.id.storage);
         New = (Button)findViewById(R.id.New);
         path = (TextView)findViewById(R.id.folderpath);
+
 
         loadLists();
         New.setEnabled(false);
@@ -268,8 +269,8 @@ public class FileSelectionActivity extends Activity {
         String[] filenames = new String[fileNames.size()];
         filenames = fileNames.toArray(filenames);
 
-        CustomListSingleOnly adapter1 = new CustomListSingleOnly(FileSelectionActivity.this, directoryNames.toArray(foldernames), false);
-        CustomList adapter2 = new CustomList(FileSelectionActivity.this, fileNames.toArray(filenames));
+        CustomListSingleOnly adapter1 = new CustomListSingleOnly(FileSelectionActivity.this, directoryNames.toArray(foldernames), mainPath.getPath());
+        CustomList adapter2 = new CustomList(FileSelectionActivity.this, fileNames.toArray(filenames), mainPath.getPath());
 
 
         MergeAdapter adap = new MergeAdapter();
@@ -305,5 +306,7 @@ public class FileSelectionActivity extends Activity {
         }
 
     }
+
+
 
 }

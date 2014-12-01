@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+
+    <string name="app_name">Parian ファイルセレクターダイアログ</string>
+    <string name="action_settings">設定</string>
+    <string name="ok">OK</string>
+    <string name="files">ファイル</string>
+    <string name="directories">フォルダ</string>
+    <string name="goUp">上へ</string>
+    <string name="all">全てチェック</string>
+    <string name="cancel">キャンセル</string>
+    <string name="none">全てのチェクを外す</string>
+    <string name="ext">外部</string>
+    <string name="Int">内部</string>
+    <string name="New">新規フォルダ</string>
+    <string name="CNew">新しいフォルダ名を入力</string>
+    <string name="create">作成</string>
+
+
+</resources>
