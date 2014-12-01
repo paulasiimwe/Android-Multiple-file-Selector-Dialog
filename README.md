@@ -17,7 +17,7 @@ This is a free to use,change and reproduce Android Library file selector dialog 
 http://stackoverflow.com/questions/22095441/android-multiple-file-selector-chooser-dialog
 
 This library starts a file/folder selector activity and returns the file(s) (Yes Multiple option too) or folder.
-The library is still very simple and not very aesthetically pleasing so your contribution is highly welcome.
+Your contribution is highly welcome
 
 ###Features
 Thumbnails for Images
