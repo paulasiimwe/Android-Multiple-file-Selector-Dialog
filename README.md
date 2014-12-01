@@ -4,11 +4,11 @@
 
 ###Introduction
 
-![ScreenShot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/sample.png)
-![ScreenShot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/Arabic_locale_sample.png)
-![ScreenShot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/French_locale_sample.png)
-![ScreenShot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/German_locale_sample.png)
-![ScreenShot](https://github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/Japan_locale_sample.png)
+![ScreenShot](https://raw.github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/master/sample.png)
+![ScreenShot](https://raw.github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/master/Arabic_locale_sample.png)
+![ScreenShot](https://raw.github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/master/French_locale_sample.png)
+![ScreenShot](https://raw.github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/master/German_locale_sample.pngraw.)
+![ScreenShot](https://raw.github.com/paulasiimwe/Android-Multiple-file-Selector-Dialog/master/Japan_locale_sample.png)
 
 **Supports API 8(+)**
 
