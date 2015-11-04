@@ -2,15 +2,15 @@
 
     <string name="app_name">Диалог выбора файла Parian</string>
     <string name="action_settings">Настройки</string>
-    <string name="ok">Хорошо</string>
+    <string name="ok">Выбрать</string>
     <string name="files">Файлы</string>
     <string name="directories">Папки</string>
     <string name="goUp">Вверх</string>
-    <string name="all">Проверить все</string>
+    <string name="all">Отметить все</string>
     <string name="cancel">Отмена</string>
     <string name="none">Снять отметку со всех</string>
-    <string name="ext">Внешний</string>
-    <string name="Int">Внутренний</string>
+    <string name="ext">Карта памяти</string>
+    <string name="Int">Внутренняя</string>
     <string name="New">Новая папка</string>
     <string name="CNew">Ввести имя новой папки</string>
     <string name="create">Создать</string>
