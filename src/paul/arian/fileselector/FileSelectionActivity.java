@@ -213,7 +213,7 @@ public class FileSelectionActivity extends Activity {
             Arrays.sort(tempDirectoryList, new Comparator<File>() {
                 @Override
                 public int compare(File object1, File object2) {
-                    return object1.getName().compareTo(object2.getName());
+                    return object1.getName().toLowerCase().compareTo(object2.getName().toLowerCase());
                 }
             });
         }
@@ -234,7 +234,7 @@ public class FileSelectionActivity extends Activity {
             Arrays.sort(tempFileList, new Comparator<File>() {
                 @Override
                 public int compare(File object1, File object2) {
-                    return object1.getName().compareTo(object2.getName());
+                    return object1.getName().toLowerCase().compareTo(object2.getName().toLowerCase());
                 }
             });
         }
